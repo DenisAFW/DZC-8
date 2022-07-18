@@ -1,0 +1,15 @@
+D:\GitLessons\SeminarsC#\DZC#8\Task58\bin\Debug\net6.0\Task58.exe
+D:\GitLessons\SeminarsC#\DZC#8\Task58\bin\Debug\net6.0\Task58.deps.json
+D:\GitLessons\SeminarsC#\DZC#8\Task58\bin\Debug\net6.0\Task58.runtimeconfig.json
+D:\GitLessons\SeminarsC#\DZC#8\Task58\bin\Debug\net6.0\Task58.dll
+D:\GitLessons\SeminarsC#\DZC#8\Task58\bin\Debug\net6.0\Task58.pdb
+D:\GitLessons\SeminarsC#\DZC#8\Task58\obj\Debug\net6.0\Task58.csproj.AssemblyReference.cache
+D:\GitLessons\SeminarsC#\DZC#8\Task58\obj\Debug\net6.0\Task58.GeneratedMSBuildEditorConfig.editorconfig
+D:\GitLessons\SeminarsC#\DZC#8\Task58\obj\Debug\net6.0\Task58.AssemblyInfoInputs.cache
+D:\GitLessons\SeminarsC#\DZC#8\Task58\obj\Debug\net6.0\Task58.AssemblyInfo.cs
+D:\GitLessons\SeminarsC#\DZC#8\Task58\obj\Debug\net6.0\Task58.csproj.CoreCompileInputs.cache
+D:\GitLessons\SeminarsC#\DZC#8\Task58\obj\Debug\net6.0\Task58.dll
+D:\GitLessons\SeminarsC#\DZC#8\Task58\obj\Debug\net6.0\refint\Task58.dll
+D:\GitLessons\SeminarsC#\DZC#8\Task58\obj\Debug\net6.0\Task58.pdb
+D:\GitLessons\SeminarsC#\DZC#8\Task58\obj\Debug\net6.0\Task58.genruntimeconfig.cache
+D:\GitLessons\SeminarsC#\DZC#8\Task58\obj\Debug\net6.0\ref\Task58.dll
