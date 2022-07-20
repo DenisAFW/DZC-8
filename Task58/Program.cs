@@ -1,22 +1,16 @@
 ﻿// Заполните спирально массив 4 на 4.
 
-int a = 4;
-int b = 4;
-
-int[,] CreateArray()
+int[,] CreateArray(int rows, int columns)
 {
-    int[,] newArray = new int[a, b];
+    int[,] newArray = new int[rows, columns];
 
-    int number = 1;
-    for (int i = 0; i < a; i++)
-        for (int j = 0; j < b; j++)
-            if (newArray[i, j] < 17)
+    int number = 0;
+    for (int i = 0; i < rows; i++)
+        for (int j = 0; j < columns; j++)
+            if (newArray[i, j] < rows * columns)
             {
                 newArray[i, j] = number;
-                number++;
             }
-
-
     return newArray;
 }
 
@@ -31,21 +25,39 @@ void ShowArray(int[,] array)
 }
 
 
-int[,] Spiral(int[,] array)
+void Spiral(int[,] array)
 {
-    int number = 1;
-    for (int j = 0; j < array.GetLength(1); j++) array[0, j] = number++; // 1 строка
-    for (int i = 1; i < array.GetLength(0); i++) array[i, array.GetLength(1) - 1] = number++; // 4 столбец
-    for (int j = array.GetLength(1) - 2; j >= 0; j--) array[array.GetLength(0) - 1, j] = number++; // 4 строка
-    for (int i = array.GetLength(0) - 2; i > 0; i--) array[i, array.GetLength(0) - 4] = number++; // 1 столбец
-    for (int j = array.GetLength(1) - 3; j>0&& j<3;j++) array[array.GetLength(1)-3,j] = number++; // 2 строка
-    for (int j = array.GetLength(1) - 2; j<3 && j>0;j--) array[array.GetLength(1)-2,j] = number++;
+    int CurrentNum = 1;
+    int StopNum = array.GetLength(0) * array.GetLength(1);
+    int PosRow = 0;
+    int PosCol = 0;
 
-    return array;
+    while (CurrentNum <= StopNum)
+    {
+        while (CurrentNum <= StopNum && PosCol < array.GetLength(1) && array[PosRow, PosCol] == 0)
+            array[PosRow, PosCol++] = CurrentNum++;
+        PosCol--; PosRow++;
+
+        while (CurrentNum <= StopNum && PosRow < array.GetLength(0) && array[PosRow, PosCol] == 0)
+            array[PosRow++, PosCol] = CurrentNum++;
+        PosRow--; PosCol--;
+
+        while (CurrentNum <= StopNum && PosCol >= 0 && array[PosRow, PosCol] == 0)
+            array[PosRow, PosCol--] = CurrentNum++;
+        PosRow--; PosCol++;
+
+        while (CurrentNum <= StopNum && PosRow >= 0 && array[PosRow, PosCol] == 0)
+            array[PosRow--, PosCol] = CurrentNum++;
+        PosRow++; PosCol++;
+        
+    }
 }
 
+Console.WriteLine("Введите размер массива");
+int a = Convert.ToInt32(Console.ReadLine());
+int b = Convert.ToInt32(Console.ReadLine());
 
-int[,] myarray = CreateArray();
+int[,] myarray = CreateArray(a,b);
 
 ShowArray(myarray);
 Spiral(myarray);
@@ -53,63 +65,22 @@ Console.WriteLine();
 ShowArray(myarray);
 
 
-// int[,] Spiral2dArray(int a, int b)
+
+
+
+// int[,] Spiral(int[,] array)
 // {
-//     int[,] array = new int[a, b];
+//     int number = 1;
+//     for (int j = 0; j < array.GetLength(1); j++) array[0, j] = number++; // 1 строка
+//     for (int i = 1; i < array.GetLength(0); i++) array[i, array.GetLength(1) - 1] = number++; // 4 столбец
+//     for (int j = array.GetLength(1) - 2; j >= 0; j--) array[array.GetLength(0) - 1, j] = number++; // 4 строка
+//     for (int i = array.GetLength(0) - 2; i > 0; i--) array[i, array.GetLength(0) - 4] = number++; // 1 столбец
+//     for (int j = array.GetLength(1) - 3; j>0&& j<3;j++) array[array.GetLength(1)-3,j] = number++; // 2 строка
+//     for (int j = array.GetLength(1) - 2; j<3 && j>0;j--) array[array.GetLength(1)-2,j] = number++;
 
-//     int start = 1;
-//     int changeX = 0;
-//     int changeY = 0;
-//     int rememberY = 0;
-//     int rememberX = 0;
-
-//     while (start < a * b)
-//     {
-//         for (int side = 0; side < 4; side++)
-//         {
-//             if (side == 0)
-//             {
-//                 for (int y = 0; y < array.GetLength(1) - changeY; y++, rememberY++)
-//                 {
-//                     array[a + changeY, y] = start;
-//                     start++;
-//                 }
-//             }
-
-//             if (side == 1)
-//             {
-//                 for (int x = 0; x < array.GetLength(0) - changeX; x++,rememberX++)
-//                 {
-//                     array[x, rememberY] = start;
-//                     start++;
-//                 }
-//             }
-
-//             if (side == 2)
-//             {
-//                 for (int y = rememberY; y > 0 + changeY; y--, rememberY--)
-//                 {
-//                     array[rememberX, y - 1] = start;
-//                     start++;
-//                 }
-//             }
-
-//             if (side == 3)
-//             {
-//                 for (int x = rememberX; x > 0 + changeX; x--,rememberX--)
-//                 {
-//                     array[x - 1, rememberY] = start;
-//                     start++;
-//                 }
-//             }
-
-//             changeY++;
-//             changeX++;
-
-//         }
-//     }
 //     return array;
 // }
+
 
 // int[,] Spiral(int[,] array)
 // {
